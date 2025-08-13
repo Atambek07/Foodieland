@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/logo.png" alt="Foodieland Logo" width="280" />
+  <img src="docs/images/logo.png" alt="Foodieland Logo" width="550" />
 </p>
 
 
