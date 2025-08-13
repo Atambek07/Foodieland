@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-w!!4vr4o2l9-rs_2m0(1642^9gsm$un-_klt7lq-!2ub#34iyf
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://foodieland-gbes.onrender.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
