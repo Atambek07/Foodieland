@@ -16,6 +16,7 @@ class Recipe(models.Model):
     img = models.ImageField(upload_to="recipes/")
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     prep_time = models.IntegerField(default=0)
+    is_starred = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['id']
@@ -38,6 +39,7 @@ class HotRecipe(models.Model):
     prep_time = models.IntegerField(default=0)
     date = models.DateField()
     chef = models.CharField(max_length=100)
+    description = models.TextField(max_length=500)
 
     class Meta:
         ordering = ['id']

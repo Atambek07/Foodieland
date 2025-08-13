@@ -85,10 +85,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Library API',
-    'DESCRIPTION': 'API для персональной библиотеки',
+    'TITLE': 'Название вашего API',
+    'DESCRIPTION': 'Описание вашего API. Здесь можно указать, что делает API, какие основные функции он выполняет и т.д.',
     'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
+    'SERVE_CORS': True,  # Разрешить CORS для UI
+    # OPTIONAL:
+    'SCHEMA_PATH_PREFIX': '/api/v[0-9]+', # Regex for schema path. Useful for versioning.
 }
 
 REST_FRAMEWORK = {
