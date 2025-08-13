@@ -109,7 +109,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "foodieland-gbes.onrender.com",
+    "https://foodieland-gbes.onrender.com",
 ]
 CORS_ALLOW_METHODS = (
     "DELETE",
