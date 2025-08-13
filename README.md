@@ -31,8 +31,7 @@
 
 ```bash
 # Клонировать репозиторий
-git clone [https://github.com/username/foodieland.git](https://github.com/Atambek07/Foodieland)
-cd core
+git clone https://github.com/Atambek07/Foodieland
 
 # Создать виртуальное окружение
 python -m venv venv
@@ -40,6 +39,9 @@ source venv/bin/activate  # или venv\Scripts\activate на Windows
 
 # Установить зависимости
 pip install -r requirements.txt
+
+# Переход в корневой папку
+cd core
 
 # Выполнить миграции
 python manage.py migrate
