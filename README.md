@@ -8,7 +8,7 @@
 
 ## 📸 Превью дизайна
 
-![Foodieland UI](/docs/images/preview.png)  
+![Foodieland UI](/docs/images/logo.png)  
 *Дизайн в Figma*: [Открыть макет](https://www.figma.com/design/JyWVxc9TzB3sspP7rIZzuv/Foodieland?node-id=101-1515)
 
 ---
