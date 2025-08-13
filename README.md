@@ -23,7 +23,7 @@
 
 ## 🛠️ Технологии
 - **Backend:** Python, Django REST Framework  
-- **Документация API:** Swagger (drf-yasg)  
+- **Документация API:** Swagger (drf_spectacular)  
 
 ---
 
