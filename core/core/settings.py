@@ -9,7 +9,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://foodieland-gbes.onrender.com',
                  'http://127.0.0.1:8000/',
-                 '127.0.0.1']
+                 '127.0.0.1',
+                 'foodieland-gbes.onrender.com',
+                 'localhost',]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -90,9 +92,8 @@ SPECTACULAR_SETTINGS = {
     'TITLE': 'Название вашего API',
     'DESCRIPTION': 'Описание вашего API. Здесь можно указать, что делает API, какие основные функции он выполняет и т.д.',
     'VERSION': '1.0.0',
-    'SERVE_CORS': True,  # Разрешить CORS для UI
-    # OPTIONAL:
-    'SCHEMA_PATH_PREFIX': '/api/v[0-9]+', # Regex for schema path. Useful for versioning.
+    'SERVE_CORS': True,
+    'SCHEMA_PATH_PREFIX': '/api/v[0-9]+',
 }
 
 REST_FRAMEWORK = {
