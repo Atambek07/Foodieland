@@ -80,3 +80,58 @@ class DetailRecipe(models.Model):
 
     def __str__(self):
         return self.name
+
+class BlogList(models.Model):
+    title = models.CharField(max_length=100)
+    img = models.ImageField(upload_to='blogs/')
+    description = models.TextField()
+    date = models.DateField()
+    author = models.CharField(max_length=100)
+    author_img = models.ImageField(upload_to='blogs/authors/')
+
+    class Meta:
+        ordering = ['-date']  # От новых к старым
+        verbose_name = "Blog"
+        verbose_name_plural = "Blogs"
+
+    def __str__(self):
+        return self.title
+
+class TastyRecipe(models.Model):
+    title = models.CharField(max_length=100)
+    img = models.ImageField(upload_to='tasty-recipes/')
+    author = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+
+class BlogPost(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    author_img = models.ImageField(upload_to='blog-post/authors/')
+    img = models.ImageField(upload_to='blog-post/')
+    date = models.DateField()
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+class BlogFAQ(models.Model):
+    blog_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='faqs')
+    question = models.CharField(max_length=100)
+    answer = models.TextField()
+    image = models.ImageField(upload_to='blog-post/faqs/', null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.question[:50]}..."
+
+class Application(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=100)
+    enquiry = models.CharField()
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name

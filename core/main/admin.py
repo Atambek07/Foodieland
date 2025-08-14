@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 from . import models
+from django.utils.html import format_html
 
 @admin.register(models.Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -71,3 +72,53 @@ class InstagramAdmin(admin.ModelAdmin):
             return mark_safe(f'<a href="{obj.content.url}" target="_blank">Посмотреть файл</a>')
         return "Файл не загружен"
     content_link.short_description = 'Ссылка на файл'
+
+class FAQInline(admin.TabularInline):
+    model = models.BlogFAQ
+    extra = 1
+    min_num = 1
+    verbose_name = "FAQ"
+    verbose_name_plural = "FAQ"
+
+
+@admin.register(models.BlogPost)
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ("title", "author", "date")
+    search_fields = ("title", "author")
+    list_filter = ("date",)
+    inlines = [FAQInline]
+
+class BlogListAdmin(admin.ModelAdmin):
+    list_display = ("title", "author", "date", "image_preview", "author_image_preview")
+    search_fields = ("title", "author")
+    list_filter = ("date", "author")
+    ordering = ("-date",)
+    date_hierarchy = "date"
+    readonly_fields = ("image_preview_form", "author_image_preview_form")  # Превью в форме
+
+    def image_preview(self, obj):
+        if obj.img:
+            return format_html('<img src="{}" width="80" height="50" style="object-fit:cover;border-radius:5px;" />', obj.img.url)
+        return "—"
+    image_preview.short_description = "Image"
+
+    def author_image_preview(self, obj):
+        if obj.author_img:
+            return format_html('<img src="{}" width="50" height="50" style="object-fit:cover;border-radius:50%;" />', obj.author_img.url)
+        return "—"
+    author_image_preview.short_description = "Author Image"
+
+    def image_preview_form(self, obj):
+        if obj.img:
+            return format_html('<img src="{}" width="200" style="object-fit:cover;border-radius:5px;" />', obj.img.url)
+        return "No image uploaded"
+    image_preview_form.short_description = "Current Image"
+
+    def author_image_preview_form(self, obj):
+        if obj.author_img:
+            return format_html('<img src="{}" width="100" style="object-fit:cover;border-radius:50%;" />', obj.author_img.url)
+        return "No image uploaded"
+    author_image_preview_form.short_description = "Current Author Image"
+
+admin.site.register(models.BlogList, BlogListAdmin)
+admin.site.register(models.TastyRecipe)

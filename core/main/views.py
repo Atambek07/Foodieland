@@ -98,3 +98,47 @@ class DetailRecipeRetrieve(generics.RetrieveAPIView):
     """
     queryset = models.DetailRecipe.objects.all()
     serializer_class = serializers.DetailRecipeSerializer
+
+class BlogPostList(generics.ListAPIView):
+    """
+    ### Список детальных блогов
+
+    Получение списка общих блогов.
+    """
+    queryset = models.BlogPost.objects.all()
+    serializer_class = serializers.BlogPostSerializer
+
+class BlogPostRetrieve(generics.RetrieveAPIView):
+    """
+    ### Детальный просмотр одного блога
+
+    Эндпоинт для просмотра одного подробного блога по его ID.
+    """
+    queryset = models.BlogPost.objects.all()
+    serializer_class = serializers.BlogPostSerializer
+
+class BlogListAPIView(generics.ListAPIView):
+    """
+    ### Список блогов
+
+    Получение списка общих блогов.
+    """
+    queryset = models.BlogList.objects.all()
+    serializer_class = serializers.BlogListSerializer
+
+class BlogRetrieveAPIView(generics.RetrieveAPIView):
+    queryset = models.BlogList.objects.all()
+    serializer_class = serializers.BlogListSerializer
+
+class TastyRecipeList(generics.ListAPIView):
+    queryset = models.TastyRecipe.objects.all()
+    serializer_class = serializers.TastyRecipeSerializer
+
+class CreateApplication(generics.CreateAPIView):
+    """
+    #Создать бланку для заявки
+
+    Для созданий заявки
+    """
+    queryset = models.Application.objects.all()
+    serializer_class = serializers.ApplicationSerializer

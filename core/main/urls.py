@@ -17,4 +17,10 @@ urlpatterns = [
     path('api/hot-recipes/<int:pk>/', views.HotRecipeRetrieve.as_view(), name='hot-recipe-detail'),
     path('api/detail-recipes/', views.DetailRecipeList.as_view(), name='detail-recipe-list'),
     path('api/detail-recipes/<int:pk>/', views.DetailRecipeRetrieve.as_view(), name='detail-recipe-detail'),
+    path('api/blog-list/', views.BlogListAPIView.as_view(), name='blog-list'),
+    path('api/blog-list/<int:pk>/', views.BlogRetrieveAPIView.as_view(), name='blog-list-detail'),
+    path('api/blog-posts/', views.BlogPostList.as_view(), name='blog-post-list'),
+    path('api/blog-post/<int:pk>/', views.BlogPostRetrieve.as_view(), name='blog-post-detail'),
+    path('api/tasty-recipes/', views.TastyRecipeList.as_view(), name='tasty-recipe-list'),
+    path('api/create-application/', views.CreateApplication.as_view(), name='create-application'),
 ]
